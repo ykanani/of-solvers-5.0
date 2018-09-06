@@ -1,2 +1,4 @@
 */Make/cray*
 */Make/linux*
+*.o
+*.dep
