@@ -68,8 +68,9 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/Xfer.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/XferI.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/HashTableI.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/HashTable.C \
-$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/HashTableIO.C \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/Tuple2.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/Istream.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/HashTableIO.C \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/tokenI.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/SLList.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/LList.H \
@@ -142,8 +143,13 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/regIOobject.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/IOobject.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/IOobjectI.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/foamVersion.H \
-$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/OSspecific.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/IOobjectTemplates.C \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/fileOperation.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/fileNameList.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/instantList.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/instant.H \
+$(WM_PROJECT_DIR)/src/OSspecific/POSIX/lnInclude/fileMonitor.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/OSspecific.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/regIOobjectI.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/wordReList.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/objectRegistryTemplates.C \
@@ -151,7 +157,8 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/stringListOps.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/wordReListMatcher.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/wordReListMatcherI.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/stringListOpsTemplates.C \
-$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/IOdictionary.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/unwatchedIOdictionary.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/baseIOdictionary.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/dictionary.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/entry.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/IDLList.H \
@@ -191,7 +198,6 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/FieldFunctionsM.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/undefFieldFunctionsM.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/Field.C \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/FieldMapper.H \
-$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/FieldM.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/mapDistributeBase.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/labelPair.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/Pair.H \
@@ -217,6 +223,8 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/TensorI.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/tensor.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/triad.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/triadI.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/macros.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/FieldM.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/FieldFunctions.C \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/PstreamReduceOps.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/vector2D.H \
@@ -247,8 +255,6 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/scalarMatricesTemplates.C \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/dimensionedType.C \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/TimeStateI.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/Switch.H \
-$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/instantList.H \
-$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/instant.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/dlLibraryTable.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/dlLibraryTableTemplates.C \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/functionObjectList.H \
@@ -257,7 +263,6 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/SHA1Digest.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/HashSet.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/nil.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/HashSet.C \
-$(WM_PROJECT_DIR)/src/OSspecific/POSIX/lnInclude/fileMonitor.H \
 $(WM_PROJECT_DIR)/src/OSspecific/POSIX/lnInclude/sigWriteNow.H \
 $(WM_PROJECT_DIR)/src/OSspecific/POSIX/lnInclude/sigStopAtWriteNow.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvMesh.H \
@@ -301,6 +306,7 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/cellShape.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/cellModel.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/cellModelI.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/cellShapeI.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/cellModeller.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/primitiveMeshI.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/pointIOField.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/vectorIOField.H \
@@ -357,7 +363,6 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/cellZoneMeshFwd.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/lduMesh.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/lduAddressing.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/lduSchedule.H \
-$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/Tuple2.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/lduInterfacePtrsList.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/lduInterface.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/lduMeshTemplates.C \
@@ -372,6 +377,7 @@ $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/surfaceInterpolation.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/volFieldsFwd.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/surfaceFieldsFwd.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvSchemes.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/IOdictionary.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvSolution.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/solution.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/solutionTemplates.C \
@@ -426,6 +432,7 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/LduInterfaceField.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/LduInterfaceField.C \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/GeometricFieldI.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/GeometricField.C \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/localIOdictionary.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/GeometricBoundaryField.C \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/emptyPolyPatch.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/commSchedule.H \
@@ -605,6 +612,9 @@ $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/triangle.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/cachedRandom.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/cachedRandomI.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/cachedRandomTemplates.C \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/barycentric2D.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/Barycentric2D.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/Barycentric2DI.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/triangleI.H \
 $(WM_PROJECT_DIR)/src/meshTools/lnInclude/surfaceLocation.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/triFace.H \
@@ -731,6 +741,12 @@ $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/nearWallDist.H \
 $(WM_PROJECT_DIR)/src/TurbulenceModels/turbulenceModels/lnInclude/TurbulenceModel.C \
 $(WM_PROJECT_DIR)/src/TurbulenceModels/incompressible/lnInclude/incompressibleTurbulenceModel.H \
 $(WM_PROJECT_DIR)/src/TurbulenceModels/incompressible/lnInclude/IncompressibleTurbulenceModel.C \
+$(WM_PROJECT_DIR)/src/TurbulenceModels/turbulenceModels/lnInclude/laminarModel.H \
+$(WM_PROJECT_DIR)/src/TurbulenceModels/turbulenceModels/lnInclude/laminarModel.C \
+$(WM_PROJECT_DIR)/src/TurbulenceModels/turbulenceModels/lnInclude/Stokes.H \
+$(WM_PROJECT_DIR)/src/TurbulenceModels/turbulenceModels/lnInclude/linearViscousStress.H \
+$(WM_PROJECT_DIR)/src/TurbulenceModels/turbulenceModels/lnInclude/linearViscousStress.C \
+$(WM_PROJECT_DIR)/src/TurbulenceModels/turbulenceModels/lnInclude/Stokes.C \
 $(WM_PROJECT_DIR)/src/TurbulenceModels/turbulenceModels/lnInclude/RASModel.H \
 $(WM_PROJECT_DIR)/src/TurbulenceModels/turbulenceModels/lnInclude/RASModel.C \
 $(WM_PROJECT_DIR)/src/TurbulenceModels/turbulenceModels/lnInclude/LESModel.H \
@@ -749,11 +765,14 @@ $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvOptionList.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvOption.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvOptionI.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/fvOptionListTemplates.C \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/vectorList.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/postProcess.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/addRegionOption.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/addFunctionObjectOptions.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/addDictOption.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/setRootCase.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/listOptions.H \
+$(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/listOutput.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/createTime.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/createMesh.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/createControl.H \
@@ -762,14 +781,18 @@ $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/createPimpleControl.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/createSimpleControl.H \
 createFields.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/createPhi.H \
+createTurbulenceStatFields.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/createMRF.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/createFvOptions.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/initContinuityErrs.H \
+calcR.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/CourantNo.H \
 UEqn.H \
 pEqn.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/continuityErrs.H \
 T1Eqn.H \
 T2Eqn.H \
+calcTurbulenceStats.H \
+rotate.H \
 
 

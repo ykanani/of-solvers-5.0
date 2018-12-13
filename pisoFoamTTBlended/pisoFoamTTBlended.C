@@ -39,6 +39,7 @@ Description
 #include "turbulentTransportModel.H"
 #include "pisoControl.H"
 #include "fvOptions.H"
+#include "vectorList.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -58,6 +59,8 @@ int main(int argc, char *argv[])
     turbulence->validate();
 
     // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+    
+    #include "calcR.H"
 
     Info<< "\nStarting time loop\n" << endl;
 
@@ -89,76 +92,8 @@ int main(int argc, char *argv[])
 	#include "T1Eqn.H"
         #include "T2Eqn.H"
 
-////calculating other statistics
-        const GeometricField<vector, fvPatchField, volMesh>& UMean =
-        U.db().objectRegistry::
-        lookupObject<GeometricField<vector, fvPatchField, volMesh> >
-        (
-             "UMean"
-        );
-        const GeometricField<scalar, fvPatchField, volMesh>& T1Mean =
-        U.db().objectRegistry::
-        lookupObject<GeometricField<scalar, fvPatchField, volMesh> >
-        (
-             "T1Mean"
-        );
-        const GeometricField<scalar, fvPatchField, volMesh>& T2Mean =
-        U.db().objectRegistry::
-        lookupObject<GeometricField<scalar, fvPatchField, volMesh> >
-        (
-             "T2Mean"
-        );
-
-        const GeometricField<scalar, fvPatchField, volMesh>& pMean =
-        U.db().objectRegistry::
-        lookupObject<GeometricField<scalar, fvPatchField, volMesh> >
-        (
-             "pMean"
-        );
-        const GeometricField<vector, fvPatchField, volMesh>& UT1Mean =
-        U.db().objectRegistry::
-        lookupObject<GeometricField<vector, fvPatchField, volMesh> >
-        (
-             "UT1Mean"
-        );
-        const GeometricField<vector, fvPatchField, volMesh>& UT2Mean =
-        U.db().objectRegistry::
-        lookupObject<GeometricField<vector, fvPatchField, volMesh> >
-        (
-             "UT2Mean"
-        );
-
-        const GeometricField<vector, fvPatchField, volMesh>& UPMean =
-        U.db().objectRegistry::
-        lookupObject<GeometricField<vector, fvPatchField, volMesh> >
-        (
-             "UPMean"
-                                       
-	);
-
-
-
-        Info << "Calculating Velocity-Pressure corrleation" << endl;
-        UP = U * p;
-        upMean = UPMean - UMean*pMean;
-
-        Info << "Calculating Velocity-Temperature corrleation" << endl;
-        UT1 = U * T1;
-        UT2 = U * T2;
-        ut1Mean = UT1Mean - UMean*T1Mean; 
-        ut2Mean = UT2Mean - UMean*T2Mean; 
-
-        Info << "Calculating Dissipation rates and SGS Renolds Stress" << endl;
-        volSymmTensorField S(symm(fvc::grad(U)));
-        ef = 2 * turbulence->nu()  *(S && S);           //filtered dissipation rate
-        esgs = 2 * turbulence->nut() *(S && S);         //rate of production of residual kinetic energy (SGS dissipation)
-        Ept = ef + esgs;                                //total epsilon
-        epsilon = turbulence->epsilon();
-
-        RSgs = turbulence->R();
-
-
-
+	#include "calcTurbulenceStats.H"
+	#include "rotate.H"
 
 
         runTime.write();
