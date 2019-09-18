@@ -122,6 +122,9 @@ volScalarField T2
 #include "createPhi.H"
 
 #include "createTurbulenceStatFields.H"
+#include "calcR.H"
+
+
 label pRefCell = 0;
 scalar pRefValue = 0.0;
 setRefCell(p, piso.dict(), pRefCell, pRefValue);

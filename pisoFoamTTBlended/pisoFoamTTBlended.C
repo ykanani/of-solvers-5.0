@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
     #include "createTime.H"
     #include "createMesh.H"
     #include "createControl.H"
-//    #include "createTimeControls.H"
+    #include "createTimeControls.H" //YK
     #include "createFields.H"
     #include "createFvOptions.H"
     #include "initContinuityErrs.H"
@@ -60,20 +60,20 @@ int main(int argc, char *argv[])
 
     // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
     
-    #include "calcR.H"
+    //#include "calcR.H"
 
     Info<< "\nStarting time loop\n" << endl;
 
-    //while (runTime.run())
-    while (runTime.loop())
+    while (runTime.run()) //YK
+    //while (runTime.loop())
     {
-        //#include "readTimeControls.H"
-        //#include "CourantNo.H"
-        //#include "setDeltaT.H"
-	//runTime++;
+        #include "readTimeControls.H" 	//YK
+        #include "CourantNo.H"		//YK
+        #include "setDeltaT.H"		//YK
+	runTime++;			//YK
 	
 	Info<< "Time = " << runTime.timeName() << nl << endl;
-        #include "CourantNo.H"
+        //#include "CourantNo.H"
 
         // Pressure-velocity PISO corrector
         {

@@ -147,6 +147,84 @@ forAll( mesh.C(), celli)
 
 }
 
+volScalarField::Boundary& wallDistB = wallDist.boundaryFieldRef();
+volTensorField::Boundary& RotTensorB = RotTensor.boundaryFieldRef();
+forAll(RotTensor.boundaryFieldRef(), patchI)
+{
+	fvPatchTensorField& Rotp = RotTensorB[patchI];
+	fvPatchScalarField& wallDistp = wallDistB[patchI];
+
+	const vectorField::subField faceCentres = mesh.boundaryMesh()[patchI].faceCentres();
+	Info << "patch names = " << mesh.boundaryMesh()[patchI].name() << endl;
+	
+	forAll(faceCentres, facei)
+ 	{
+		xc = faceCentres[facei].component(0);
+		yc = faceCentres[facei].component(1);
+
+		//Info << "Face  (" << xc << ","<< yc << "," <<  faceCenters[facei].component(2) << endl;
+		//Info << "U =" << U[celli] << endl;
+
+		forAll(pp,i)
+		{
+			dist = Foam::sqrt(pow((pp[i][0]-xc),2)+pow((pp[i][1]-yc),2));
+			if (dist < distMin1)
+			{
+				distMin2 = distMin1;
+				i2 = i1 ;
+
+				distMin1 = dist;
+				i1 = i ;
+			}
+
+			//Info << "slope " << i << " = " << slope[i] << endl;
+		}
+		if (i1==0)
+		{
+			i2=1;
+		}
+		//Info << "Point1 " << pp[i1] << endl;
+		//Info << "Min Dist1 =" << distMin1 << " to point :  " << i1 << endl;
+		//Info << "Point2 " << pp[i2] << endl;
+		//Info << "Min Dist2 =" << distMin2 << " to point :  " << i2 << endl;
+		x1 = pp[i1][0];
+		y1 = pp[i1][1];
+
+		x2 = pp[i2][0];
+		y2 = pp[i2][1];
+
+		m1 = slope[i1];
+		m2 = slope[i2];
+
+		m = (y2-y1)/(x2-x1);
+		b = 1;
+		a = -m;
+		c = -y1+m*x1;
+
+		xi= (b*( b*xc -a*yc)-a*c)/(pow(a,2)+pow(b,2));
+		yi= (a*(-b*xc +a*yc)-b*c)/(pow(a,2)+pow(b,2));
+		wallDistp[facei] = mag(a*xc+b*yc+c)/Foam::sqrt((pow(a,2)+pow(b,2)));
+		//Info << "wallDist["<< celli << "]= " << wallDist[celli] << endl;
+		mi = m1+ (xi-x1)*(m2-m1)/(x2-x1);
+
+		tv = vector(1,mi,0);
+		tvnorm = tv / mag(tv);
+		if (mi < 0)
+		{
+			sign=-1;
+		}
+		else
+		{
+			sign=1;
+		}
+		Rotp[facei]= tensor(unitx&tvnorm,sign*mag(tvnorm^unitx),0,-sign*mag(tvnorm^unitx),unitx&tvnorm,0,0,0,1);
+
+		distMin1=100000;
+		i1=0;
+		distMin2=100000;
+		i2=0;
+
+ 	}
 
 
-
+}
